@@ -27,16 +27,18 @@ public class Main {
         library.add(ChickenTales);
 
         System.out.println(library);//list
-        System.out.print(library.totalPrice()+"\n");//2050
+        System.out.print(library.getTotalPrice()+"\n");//2050
         System.out.println(library.getLanguageCount("JavaScript"));//2
         System.out.println(library.searchBookLinear("CSharpCore"));//300
         System.out.println(library.searchBookLinear("HelloWord"));//Not Found
 
-        library.priceSortBubbly();
-        System.out.println(library);//Duck Tales,(==) Chicken Tales, Fish Tales, JavaScript,(==) Cat Tales, Java, Spring,(==) CSharpCore, Dog Tales, NodeJs,
-
-        library.priceSortSelection();
-        System.out.println(library);////Duck Tales,(==) Chicken Tales, Fish Tales, JavaScript,(==) Cat Tales, Java, Spring,(==) CSharpCore, Dog Tales, NodeJs,
+//        library.priceSortBubbly();
+//        System.out.println(library);//Duck Tales,(==) Chicken Tales, Fish Tales, JavaScript,(==) Cat Tales, Java, Spring,(==) CSharpCore, Dog Tales, NodeJs,
+//
+//        library.priceSortSelection();
+//        System.out.println(library);////Duck Tales,(==) Chicken Tales, Fish Tales, JavaScript,(==) Cat Tales, Java, Spring,(==) CSharpCore, Dog Tales, NodeJs,
+          library.priceSortInsert();
+        System.out.println(library);
 
     }
 }
