@@ -37,7 +37,7 @@ public class Main {
 //
 //        library.priceSortSelection();
 //        System.out.println(library);////Duck Tales,(==) Chicken Tales, Fish Tales, JavaScript,(==) Cat Tales, Java, Spring,(==) CSharpCore, Dog Tales, NodeJs,
-          library.priceSortInsert();
+        library.priceSortInsert();
         System.out.println(library);
 
     }

@@ -28,6 +28,14 @@ public class BookList {
         return total;
     }
 
+    public ArrayList<Integer> getPriceList() {
+      ArrayList<Integer> price=new ArrayList<>();
+      for(Book a:this.bookList){
+          price.add(a.price);
+      }
+      return price;
+    }
+
     public int getLanguageCount(String language) {
         int count = 0;
 
@@ -82,20 +90,15 @@ public class BookList {
     }
 
     public void priceSortInsert() {
-
         for (int i = 1; i < bookList.size();i++) {
             Book current=bookList.get(i);
-
-            int j=i-1;
-            while(j>=0&&bookList.get(j).getPrice()>current.getPrice()){
-                System.out.println(bookList.get(j).getPrice()>=current.getPrice());
-                bookList.set(i,bookList.get(j));
-                bookList.set(j,current);
-
+            int j=i;
+            while(j>0&&(bookList.get(j-1).getPrice()>current.getPrice())){
+                bookList.set(j,bookList.get(j-1));
                 j--;
             }
-
+            bookList.set(j,current);
         }
-        System.out.println(bookList);
+        System.out.println(this.getPriceList());
     }
 }
