@@ -96,9 +96,20 @@ public class BookList {
             while(j>0&&(bookList.get(j-1).getPrice()>current.getPrice())){
                 bookList.set(j,bookList.get(j-1));
                 j--;
+                System.out.println(bookList);
             }
             bookList.set(j,current);
         }
-        System.out.println(this.getPriceList());
+    }
+
+    public Book searchBinary(String name){
+        int first=0;
+        int last=bookList.size();
+        while(first<last){
+            int mid=(first+last)/2;
+            if(bookList.get(first).getName().compareTo(name)==0){
+                return
+            }
+        }
     }
 }
