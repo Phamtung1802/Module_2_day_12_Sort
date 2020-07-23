@@ -1,6 +1,8 @@
 package book;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class BookList {
@@ -96,20 +98,36 @@ public class BookList {
             while(j>0&&(bookList.get(j-1).getPrice()>current.getPrice())){
                 bookList.set(j,bookList.get(j-1));
                 j--;
-                System.out.println(bookList);
             }
             bookList.set(j,current);
         }
     }
 
-    public Book searchBinary(String name){
+    public void sortBinary(){
+        Collections.sort(bookList, new Comparator<Book>() {
+            @Override
+            public int compare(Book o1, Book o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
+    }
+
+    public int searchBinary(String name){
+        sortBinary();
         int first=0;
-        int last=bookList.size();
-        while(first<last){
+        int last=bookList.size()-1;
+        while (first<=last){
             int mid=(first+last)/2;
-            if(bookList.get(first).getName().compareTo(name)==0){
-                return
+            if(bookList.get(mid).getName().compareTo(name)==0){
+                return bookList.get(mid).getPrice();
+            }
+            if(bookList.get(mid).getName().compareTo(name)>0){
+                last=mid-1;
+            }
+            if(bookList.get(mid).getName().compareTo(name)<0){
+                first=mid+1;
             }
         }
+        return -1;
     }
 }

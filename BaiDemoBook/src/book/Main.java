@@ -38,6 +38,8 @@ public class Main {
 //        library.priceSortSelection();
 //        System.out.println(library);////Duck Tales,(==) Chicken Tales, Fish Tales, JavaScript,(==) Cat Tales, Java, Spring,(==) CSharpCore, Dog Tales, NodeJs,
         library.priceSortInsert();
+
+        System.out.println(library.searchBinary("NodeJs"));
         System.out.println(library);
 
     }
