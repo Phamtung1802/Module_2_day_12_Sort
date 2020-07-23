@@ -5,26 +5,17 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class BookList {
-    ArrayList<Book> bookList;
+public class BookList extends ArrayList<Book> {
+
 
     public BookList() {
-        this.bookList = new ArrayList();
     }
 
-    public void add(Book book) {
-        bookList.add(book);
-    }
 
-    @Override
-    public String toString() {
-
-        return this.bookList.toString();
-    }
 
     public int getTotalPrice() {
         int total = 0;
-        for (Book a : this.bookList) {
+        for (Book a : this) {
             total += a.getPrice();
         }
         return total;
@@ -32,7 +23,7 @@ public class BookList {
 
     public ArrayList<Integer> getPriceList() {
       ArrayList<Integer> price=new ArrayList<>();
-      for(Book a:this.bookList){
+      for(Book a:this){
           price.add(a.price);
       }
       return price;
@@ -41,7 +32,7 @@ public class BookList {
     public int getLanguageCount(String language) {
         int count = 0;
 
-        for (Book book : this.bookList) {
+        for (Book book : this) {
             if (book instanceof ProgrammingBook) {
                 if (language.compareTo((((ProgrammingBook) book).language)) == 0) {
                     count++;
@@ -53,7 +44,7 @@ public class BookList {
 
     public String searchBookLinear(String name) {
         int count = 0;
-        for (Book book : this.bookList) {
+        for (Book book : this) {
             if (book.name.compareTo(name) == 0) {
                 return book.getPrice().toString();
             }
@@ -62,12 +53,12 @@ public class BookList {
     }
 
     public void priceSortBubbly() {
-        for (int i = 0; i < bookList.size(); i++) {
-            for (int j = i + 1; j < bookList.size(); j++) {
-                if (bookList.get(i).getPrice() > bookList.get(j).getPrice()) {
-                    Book temp = bookList.get(i);
-                    bookList.set(i, bookList.get(j));
-                    bookList.set(j, temp);
+        for (int i = 0; i < this.size(); i++) {
+            for (int j = i + 1; j < this.size(); j++) {
+                if (this.get(i).getPrice() > this.get(j).getPrice()) {
+                    Book temp = this.get(i);
+                    this.set(i, this.get(j));
+                    this.set(j, temp);
                 }
             }
         }
@@ -75,36 +66,36 @@ public class BookList {
 
     public void priceSortSelection() {
         ArrayList<Book> sortingArr = new ArrayList<>();
-        int e = bookList.size();
+        int e = this.size();
         for (int i = 0; i < e; i++) {
-            Book min = bookList.get(0);
-            for (int j = i + 1; j < bookList.size(); j++) {
-                if (bookList.get(j).getPrice() < min.getPrice()) {
-                    min = bookList.get(j);
+            Book min = this.get(0);
+            for (int j = i + 1; j < this.size(); j++) {
+                if (this.get(j).getPrice() < min.getPrice()) {
+                    min = this.get(j);
                 }
             }
             sortingArr.add(min);
-            bookList.remove(min);
+            this.remove(min);
         }
         for (Book a : sortingArr) {
-            bookList.add(a);
+            this.add(a);
         }
     }
 
     public void priceSortInsert() {
-        for (int i = 1; i < bookList.size();i++) {
-            Book current=bookList.get(i);
+        for (int i = 1; i < this.size();i++) {
+            Book current=this.get(i);
             int j=i;
-            while(j>0&&(bookList.get(j-1).getPrice()>current.getPrice())){
-                bookList.set(j,bookList.get(j-1));
+            while(j>0&&(this.get(j-1).getPrice()>current.getPrice())){
+                this.set(j,this.get(j-1));
                 j--;
             }
-            bookList.set(j,current);
+            this.set(j,current);
         }
     }
 
     public void sortBinary(){
-        Collections.sort(bookList, new Comparator<Book>() {
+        Collections.sort(this, new Comparator<Book>() {
             @Override
             public int compare(Book o1, Book o2) {
                 return o1.getName().compareTo(o2.getName());
@@ -115,16 +106,16 @@ public class BookList {
     public int searchBinary(String name){
         sortBinary();
         int first=0;
-        int last=bookList.size()-1;
+        int last=this.size()-1;
         while (first<=last){
             int mid=(first+last)/2;
-            if(bookList.get(mid).getName().compareTo(name)==0){
-                return bookList.get(mid).getPrice();
+            if(this.get(mid).getName().compareTo(name)==0){
+                return this.get(mid).getPrice();
             }
-            if(bookList.get(mid).getName().compareTo(name)>0){
+            if(this.get(mid).getName().compareTo(name)>0){
                 last=mid-1;
             }
-            if(bookList.get(mid).getName().compareTo(name)<0){
+            if(this.get(mid).getName().compareTo(name)<0){
                 first=mid+1;
             }
         }
