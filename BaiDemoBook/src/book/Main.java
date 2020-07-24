@@ -36,9 +36,9 @@ public class Main {
         System.out.println("priceSortBubbly" +library);//Duck Tales,(==) Chicken Tales, Fish Tales, JavaScript,(==) Cat Tales, Java, Spring,(==) CSharpCore, Dog Tales, NodeJs,
 
         library.priceSortSelection();
-        System.out.println("priceSortSelection" +library);////Duck Tales,(==) Chicken Tales, Fish Tales, JavaScript,(==) Cat Tales, Java, Spring,(==) CSharpCore, Dog Tales, NodeJs,
+        System.out.println("priceSortSelection " +library);////Duck Tales,(==) Chicken Tales, Fish Tales, JavaScript,(==) Cat Tales, Java, Spring,(==) CSharpCore, Dog Tales, NodeJs,
         library.priceSortInsert();
-        System.out.println("priceSortInsert" +library);////Duck Tales,(==) Chicken Tales, Fish Tales, JavaScript,(==) Cat Tales, Java, Spring,(==) CSharpCore, Dog Tales, NodeJs,
+        System.out.println("priceSortInsert " +library);////Duck Tales,(==) Chicken Tales, Fish Tales, JavaScript,(==) Cat Tales, Java, Spring,(==) CSharpCore, Dog Tales, NodeJs,
 
         System.out.println(library.searchBinary("Chicken Tales"));
         System.out.println(library);
