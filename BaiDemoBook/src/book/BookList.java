@@ -12,7 +12,6 @@ public class BookList extends ArrayList<Book> {
     }
 
 
-
     public int getTotalPrice() {
         int total = 0;
         for (Book a : this) {
@@ -22,11 +21,11 @@ public class BookList extends ArrayList<Book> {
     }
 
     public ArrayList<Integer> getPriceList() {
-      ArrayList<Integer> price=new ArrayList<>();
-      for(Book a:this){
-          price.add(a.price);
-      }
-      return price;
+        ArrayList<Integer> price = new ArrayList<>();
+        for (Book a : this) {
+            price.add(a.price);
+        }
+        return price;
     }
 
     public int getLanguageCount(String language) {
@@ -83,18 +82,18 @@ public class BookList extends ArrayList<Book> {
     }
 
     public void priceSortInsert() {
-        for (int i = 1; i < this.size();i++) {
-            Book current=this.get(i);
-            int j=i;
-            while(j>0&&(this.get(j-1).getPrice()>current.getPrice())){
-                this.set(j,this.get(j-1));
+        for (int i = 1; i < this.size(); i++) {
+            Book current = this.get(i);
+            int j = i;
+            while (j > 0 && (this.get(j - 1).getPrice() > current.getPrice())) {
+                this.set(j, this.get(j - 1));
                 j--;
             }
-            this.set(j,current);
+            this.set(j, current);
         }
     }
 
-    public void sortBinary(){
+    public void sortBinary() {
         Collections.sort(this, new Comparator<Book>() {
             @Override
             public int compare(Book o1, Book o2) {
@@ -103,20 +102,20 @@ public class BookList extends ArrayList<Book> {
         });
     }
 
-    public int searchBinary(String name){
+    public int searchBinary(String name) {
         sortBinary();
-        int first=0;
-        int last=this.size()-1;
-        while (first<=last){
-            int mid=(first+last)/2;
-            if(this.get(mid).getName().compareTo(name)==0){
+        int first = 0;
+        int last = this.size() - 1;
+        while (first <= last) {
+            int mid = (first + last) / 2;
+            if (this.get(mid).getName().compareTo(name) == 0) {
                 return this.get(mid).getPrice();
             }
-            if(this.get(mid).getName().compareTo(name)>0){
-                last=mid-1;
+            if (this.get(mid).getName().compareTo(name) > 0) {
+                last = mid - 1;
             }
-            if(this.get(mid).getName().compareTo(name)<0){
-                first=mid+1;
+            if (this.get(mid).getName().compareTo(name) < 0) {
+                first = mid + 1;
             }
         }
         return -1;
